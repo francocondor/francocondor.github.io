@@ -1,6 +1,3 @@
-
-## About Laravel
-
 # Mi página personal en GitHub
 ## ¿Qué es esto?
 Este es el repositorio de mi página personal en GitHub, donde comparto información sobre mí, mis proyectos y mis intereses.
