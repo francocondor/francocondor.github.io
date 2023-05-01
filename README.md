@@ -23,6 +23,6 @@ También me gustaría seguir aprendiendo sobre GitHub Pages y Markdown, y explor
 ## ¿Cómo puedes usarlo?
 Puedes visitar mi página web en francocondor.github.io y ver lo que he hecho. Si te gusta, puedes seguirme en GitHub y Twitter para estar al tanto de mis actualizaciones.
 
-También puedes clonar o bifurcar este repositorio y usarlo como base para crear tu propia página personal en GitHub. Solo tienes que cambiar el nombre del repositorio por <user>.github.io, donde <user> es tu nombre de usuario o de organización en GitHub, y modificar el contenido a tu gusto.
+También puedes clonar o bifurcar este repositorio y usarlo como base para crear tu propia página personal en GitHub. Solo tienes que cambiar el nombre del repositorio por `username.github.io`, donde `username` es tu nombre de usuario o de organización en GitHub, y modificar el contenido a tu gusto.
 
 Si tienes alguna sugerencia o comentario sobre mi página web o mi archivo README, puedes abrir un issue o un pull request en este repositorio. Estaré encantado de recibir tu feedback.
