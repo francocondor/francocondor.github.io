@@ -1168,12 +1168,14 @@
                 </div>
             </div>
             <div class="mt-8 pt-6 border-t border-slate-800 text-center text-slate-400">
-                <p>&copy; 2025 Franco Condor. All rights reserved.</p>
+                <p>&copy; <span id="current-year"></span> Franco Condor. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
