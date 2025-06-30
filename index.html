@@ -3,644 +3,1121 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franco Cóndor</title>
-    <link rel="icon" href="img/letter-f.png" type="image/png">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <title>Franco Condor | Backend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyan: {
+                            light: '#22d3ee',
+                            DEFAULT: '#06b6d4',
+                            dark: '#0891b2',
+                        },
+                        blue: {
+                            light: '#60a5fa',
+                            DEFAULT: '#3b82f6',
+                            dark: '#2563eb',
+                        },
+                        slate: {
+                            50: '#f8fafc',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+        }
+
+        .gradient-border {
+            border-image: linear-gradient(90deg, #06b6d4, #3b82f6) 1;
+        }
+
+        .pattern-bg {
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.05) 0%, transparent 20%);
+            background-size: 50% 50%;
+        }
+
+        .terminal {
+            background-color: #1e293b;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #f8fafc;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .terminal-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .terminal-prompt {
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .terminal-output {
+            color: #f8fafc;
+        }
+
+        .terminal-highlight {
+            color: #fbbf24;
+            font-weight: 500;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 0.6em;
+            height: 1em;
+            background-color: #f8fafc;
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+            margin-left: 1px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.3), 0 8px 10px -6px rgba(59, 130, 246, 0.3);
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            margin-top: 0.25rem;
+        }
+
+        .skill-dot {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+
+        .skill-dot.filled {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+        }
+
+        .skill-dot.empty {
+            border: 1px solid #cbd5e1;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover .nav-indicator {
+            transform: scaleX(1);
+        }
+
+        .nav-link.active .nav-indicator {
+            transform: scaleX(1);
+        }
+
+        .hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            width: 60px;
+            height: 70px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
 </head>
 
-<body class="main-content">
-    <header class="container header active" id="home">
-        <div class="header-content">
-            <div class="left-header">
-                <div class="h-shape"></div>
-                <div class="image">
-                    <img src="img/huancayo.jpg" alt="">
-                </div>
-            </div>
-            <div class="right-header">
-                <h1 class="name">
-                    Hi, I'm <span>Franco Cóndor.</span><br />
-                    A Backend Developer.
-                </h1>
-                <p>
-                    I’m a backend developer with a solid background and experience in web development.
-                    If you want to learn more about me and what I can do for you, you can take a look at my portfolio or
-                    send me a message.
-
-                </p>
-                <div class="btn-con">
-                    <a href="./public/docs/cv_en.pdf" class="main-btn" target="_blank">
-                        <span class="btn-text">Download CV</span>
-                        <span class="btn-icon"><i class="fas fa-download"></i></span>
-                    </a>
-                </div>
+<body class="pattern-bg">
+    <!-- Header -->
+    <header class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm shadow-md z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">franco.condor</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link relative text-slate-900 hover:text-cyan font-medium">
+                    Home
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#about" class="nav-link relative text-slate-900 hover:text-cyan font-medium">
+                    About
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#skills" class="nav-link relative text-slate-900 hover:text-cyan font-medium">
+                    Skills
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#projects" class="nav-link relative text-slate-900 hover:text-cyan font-medium">
+                    Projects
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#contact" class="nav-link relative text-slate-900 hover:text-cyan font-medium">
+                    Contact
+                    <span class="nav-indicator"></span>
+                </a>
+            </nav>
+            <button class="md:hidden text-slate-900" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white" id="mobile-menu">
+            <div class="px-4 py-2 space-y-3">
+                <a href="#home" class="block text-slate-900 hover:text-cyan font-medium">Home</a>
+                <a href="#about" class="block text-slate-900 hover:text-cyan font-medium">About</a>
+                <a href="#skills" class="block text-slate-900 hover:text-cyan font-medium">Skills</a>
+                <a href="#projects" class="block text-slate-900 hover:text-cyan font-medium">Projects</a>
+                <a href="#contact" class="block text-slate-900 hover:text-cyan font-medium">Contact</a>
             </div>
         </div>
     </header>
-    <main>
-        <section class="container about" id="about">
-            <div class="main-title">
-                <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
-            </div>
-            <div class="about-container">
-                <div class="left-about">
-                    <h4>Information About me</h4>
-                    <p>
-                        I master the use of languages like PHP, Java and javascript,
-                        as well as frameworks like Laravel, Spring, Hibernate, NodeJS and many others.
-                        <br />
-                        <br />
-                        I have worked as a backend developer in several companies and digital agencies, developing web
-                        projects of various types and sizes.
-                        <br />
-                        <br />
-                        I consider myself a creative, responsible and committed person with my work.
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-xl font-medium mb-2">Hello, I'm</h2>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">Franco Condor</h1>
+                    <h3 class="text-2xl font-semibold mb-4">Backend Developer</h3>
+                    <p class="text-slate-700 mb-8 max-w-lg">
+                        I build robust, scalable and efficient backend solutions using modern technologies.
+                        Specialized in API development, database optimization, and cloud infrastructure.
                     </p>
-                    <div class="btn-con">
-                        <a href="./public/docs/cv_en.pdf" class="main-btn" target="_blank">
-                            <span class="btn-text">Download CV</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                    <div class="flex space-x-4">
+                        <a href="#projects"
+                            class="px-6 py-3 rounded-lg gradient-bg text-white font-medium transition-all hover:shadow-lg hover:shadow-cyan/30">
+                            View Projects
+                        </a>
+                        <a href="#contact"
+                            class="px-6 py-3 rounded-lg border-2 border-cyan hover:border-blue text-slate-900 font-medium transition-all">
+                            Contact Me
                         </a>
                     </div>
                 </div>
-                <div class="right-about">
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">100+</p>
-                            <p class="small-text">Projects <br /> Completed</p>
+                <div class="md:w-1/2 floating">
+                    <div class="terminal w-full max-w-lg mx-auto">
+                        <div class="terminal-header">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <div class="ml-4 text-xs text-slate-400">franco@backend-dev:~</div>
                         </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">7+</p>
-                            <p class="small-text">Years of <br /> experience</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">50+</p>
-                            <p class="small-text">Happy <br /> Clients</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">100+</p>
-                            <p class="small-text">Customer <br /> reviews</p>
+                        <div class="terminal-content" id="terminal-content">
+                            <!-- Terminal content will be dynamically populated -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="about-stats">
-                <h4 class="stat-title">My Skills</h4>
-                <div class="progress-bars">
-                    <div class="progress-bar">
-                        <p class="prog-title">PHP</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="php"></span>
-                            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0">
+                    <div class="relative w-64 h-64 mx-auto">
+                        <div
+                            class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan to-blue opacity-30 blur-lg">
+                        </div>
+                        <div class="absolute inset-1 bg-white rounded-full overflow-hidden">
+                            <img src="./img/Franco.jpg" alt="Franco Condor"
+                                class="w-full h-full object-cover rounded-full shadow-lg">
                         </div>
                     </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Laravel</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="laravel"></span>
+                    <div class="flex justify-center mt-6 space-x-4">
+                        <a href="https://github.com/francocondor" class="text-cyan hover:text-blue transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/francocondor/"
+                            class="text-cyan hover:text-blue transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-slate-700 mb-6">
+                        I'm a passionate Backend Developer with over 8 years of experience building scalable and
+                        efficient server-side applications.
+                        My journey in software development began with a deep curiosity about how systems work behind the
+                        scenes,
+                        which led me to specialize in backend technologies.
+                    </p>
+                    <p class="text-slate-700 mb-6">
+                        I enjoy solving complex problems and creating robust architectures that can handle high traffic
+                        and data-intensive operations.
+                        My approach combines technical expertise with a strong focus on clean code, performance
+                        optimization, and security best practices.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                        <div class="flex items-start">
+                            <div class="text-cyan mr-3">
+                                <i class="fas fa-server text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">API Development</h3>
+                                <p class="text-sm text-slate-600">Designing and building RESTful and GraphQL APIs with a
+                                    focus on performance and usability.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">JAVA</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="java"></span>
+                        <div class="flex items-start">
+                            <div class="text-cyan mr-3">
+                                <i class="fas fa-database text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Database Design</h3>
+                                <p class="text-sm text-slate-600">Creating efficient database schemas and optimizing
+                                    queries for both SQL and NoSQL databases.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Spring</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="spring"></span>
+                        <div class="flex items-start">
+                            <div class="text-cyan mr-3">
+                                <i class="fas fa-cloud text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Cloud Infrastructure</h3>
+                                <p class="text-sm text-slate-600">Deploying and managing applications on AWS, DigitalOcean,
+                                    and other cloud platforms.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">javascript</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="js"></span>
+                        <div class="flex items-start">
+                            <div class="text-cyan mr-3">
+                                <i class="fas fa-laptop-code text-xl"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">NodeJS</p>
-                        <div class="progress-con">
-                            <p class="prog-text">87%</p>
-                            <div class="progress">
-                                <span class="node"></span>
+                            <div>
+                                <h3 class="font-semibold mb-1">Web Development</h3>
+                                <p class="text-sm text-slate-600">Building responsive and accessible web applications using modern
+                                    frameworks and best practices.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h4 class="stat-title">My Timeline</h4>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Technical Skills</h2>
+
+            <!-- Programming Languages -->
+            <div class="mb-16">
+                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                    <div class="hexagon mr-4 w-10 h-12 flex-shrink-0">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <p class="tl-duration">2022 - present</p>
-                    <h5>Tech Lead Backend<span> - El Depa de Rocko</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+                    Programming Languages
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">PHP</h4>
+                            <span class="text-sm text-slate-600">Expert</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Web application development, RESTful APIs, and MVC architecture.
+                        </p>
                     </div>
-                    <p class="tl-duration">2020 - 2022</p>
-                    <h5>Fullstack Developer<span> - Bitel Perú</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Java</h4>
+                            <span class="text-sm text-slate-600">Advanced</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Enterprise application development, multithreading, and Spring ecosystem expertise.
+                        </p>
                     </div>
-                    <p class="tl-duration">2019 - 2019</p>
-                    <h5>Fullstack Developer<span> - Municipalidad de Bellavista</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">JavaScript</h4>
+                            <span class="text-sm text-slate-600">Advanced</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Full-stack development with Node.js, Express, and asynchronous programming.
+                        </p>
                     </div>
-                    <p class="tl-duration">2018 - 2018</p>
-                    <h5>Backend Developer<span> - Shaka Soluciones</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Python</h4>
+                            <span class="text-sm text-slate-600">Intermediate</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Data processing, automation scripts, and web application development.
+                        </p>
                     </div>
-                    <p class="tl-duration">2016 - 2017</p>
-                    <h5>Backend Developer<span> - Softhy</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">TypeScript</h4>
+                            <span class="text-sm text-slate-600">Intermediate</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Strongly typed JavaScript for large-scale applications, enhancing code quality and maintainability.             
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">C#</h4>
+                            <span class="text-sm text-slate-600">Basic</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            .NET Core applications and basic Windows application development.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
-        <section class="container" id="portfolio">
-            <div class="main-title">
-                <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
+
+            <!-- Frameworks & Libraries -->
+            <div class="mb-16">
+                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                    <div class="hexagon mr-4 w-10 h-12 flex-shrink-0">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    Frameworks & Libraries
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Laravel</h4>
+                            <span class="text-sm text-slate-600">Expert</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Advanced Eloquent ORM, custom package development, and API architecture.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Spring</h4>
+                            <span class="text-sm text-slate-600">Advanced</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Spring Boot, Spring Security, and microservices architecture.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Express</h4>
+                            <span class="text-sm text-slate-600">Intermediate</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            RESTful API development, middleware implementation, and authentication.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p class="port-text">
-                Here is some of my work that I've done in various programming languages.
-            </p>
-            <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/eldepaderocko_web.png" alt="">
+
+            <!-- Databases & DevOps -->
+            <div>
+                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                    <div class="hexagon mr-4 w-10 h-12 flex-shrink-0">
+                        <i class="fas fa-database"></i>
                     </div>
-                    <div class="hover-items">
-                        <h3>El Depa de Rocko</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-laravel" title="Laravel"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-vuejs" title="Vue.js"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-css3-alt" title="CSS"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-php" title="PHP"></i>
-                            </a>
+                    Databases & DevOps
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">MySQL</h4>
+                            <span class="text-sm text-slate-600">Expert</span>
                         </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Complex query optimization, indexing strategies, and replication setup.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">PostgreSQL</h4>
+                            <span class="text-sm text-slate-600">Advanced</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Advanced data types, JSON operations, and performance tuning.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">MongoDB</h4>
+                            <span class="text-sm text-slate-600">Intermediate</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Document design, aggregation framework, and sharding configuration.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Redis</h4>
+                            <span class="text-sm text-slate-600">Advanced</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Caching strategies, pub/sub implementation, and data structures.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">Docker</h4>
+                            <span class="text-sm text-slate-600">Advanced</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Container orchestration, multi-stage builds, and custom images.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold">AWS</h4>
+                            <span class="text-sm text-slate-600">Intermediate</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot empty"></div>
+                            <div class="skill-dot empty"></div>
+                        </div>
+                        <p class="mt-3 text-sm text-slate-600">
+                            EC2, S3, RDS, Lambda, and CloudFormation deployment.
+                        </p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/ilumina_responsive.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Ilumina Arqui.</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-laravel" title="Laravel"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-css3-alt" title="CSS"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-bootstrap" title="Bootstrap"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-trello" title="Trello"></i>
-                            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center">
+                        <div class="terminal w-4/5 h-40">
+                            <div class="terminal-header">
+                                <div class="terminal-dot bg-red-500"></div>
+                                <div class="terminal-dot bg-yellow-500"></div>
+                                <div class="terminal-dot bg-green-500"></div>
+                                <div class="ml-4 text-xs text-slate-400">api-gateway</div>
+                            </div>
+                            <div class="terminal-content text-xs">
+                                <div class="mb-1"><span class="text-green-400">$</span> curl -X GET
+                                    https://api.example.com/v1/users</div>
+                                <div class="mb-1">{</div>
+                                <div class="mb-1"> "status": "success",</div>
+                                <div class="mb-1"> "data": {</div>
+                                <div class="mb-1"> "users": [...]</div>
+                                <div class="mb-1"> }</div>
+                                <div class="mb-1">}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/smiledu_web.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>smiledu</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-php" title="PHP"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-html5" title="HTML"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-css3-alt" title="CSS"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-trello" title="Trello"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-node" title="node"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-laravel" title="Laravel"></i>
-                            </a>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Microservices API Gateway</h3>
+                        <p class="text-slate-600 mb-4">
+                            A high-performance API gateway that handles routing, authentication, rate limiting, and load
+                            balancing for a microservices architecture.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Go</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Redis</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Docker</span>
+                            <span
+                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Kubernetes</span>
                         </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/munibe_web.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Muni. de Bellavista</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-laravel" title="Laravel"></i>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fab fa-github mr-1"></i> Repository
                             </a>
-                            <a class="icon">
-                                <i class="fab fa-wordpress" title="Wordpress"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-php" title="PHP"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-drupal" title="Drupal"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/bitel_web.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Bitel - Perú</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-drupal" title="Drupal"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-css3-alt" title="CSS"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-java" title="Spring Boot"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-angular" title="Angular"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/bitel_speedtest_web.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Bitel Speedtest</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-angular" title="Angular"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-css3-alt" title="CSS"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-laravel" title="Laravel"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-java" title="Spring Boot"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/palmita_web.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Palmita</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-php" title="PHP"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-html5" title="HTML"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-css3-alt" title="CSS"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-laravel" title="Laravel"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-node" title="node"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/portafolio/palmita_mobile.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Palmita App</h3>
-                        <div class="icons">
-                            <a class="icon">
-                                <i class="fab fa-android" title="Android"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-java" title="Java"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-github" title="Github"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-node" title="node"></i>
-                            </a>
-                            <a class="icon">
-                                <i class="fab fa-trello" title="Trello"></i>
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </section>
-        <section class="container" id="blogs">
-            <div class="blogs-content">
-                <div class="main-title">
-                    <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
-                </div>
-                <div class="blogs">
-                    <div class="blog">
-                        <img src="img/port6.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Create Your Own Website
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center">
+                        <div class="w-4/5 h-40 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                            </svg>
                         </div>
                     </div>
-                    <div class="blog">
-                        <img src="img/blog1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Become an Expert in Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-commerce Order Management System</h3>
+                        <p class="text-slate-600 mb-4">
+                            A scalable order processing system that handles high-volume transactions, inventory
+                            management, and payment processing for e-commerce platforms.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Java</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Spring
+                                Boot</span>
+                            <span
+                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">RabbitMQ</span>
                         </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Become a Web Designer in 10 Days
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Debbuging made easy with Web Inspector
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Get started with Web Design and UI Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                This is what you need to know about Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fab fa-github mr-1"></i> Repository
+                            </a>
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="container contact" id="contact">
-            <div class="contact-container">
-                <div class="main-title">
-                    <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
-                </div>
-                <div class="contact-content-con">
-                    <div class="left-contact">
-                        <h4>Contact me here</h4>
-                        <!-- <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            In, laborum numquam? Quam excepturi perspiciatis quas quasi.
-                        </p> -->
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Location</span>
-                                </div>
-                                <p>
-                                    : Lima, Perú
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </div>
-                                <p>
-                                    <span>:
-                                        <a href="mailto:franco.condor@urp.edu.pe" class="item-link"
-                                            style="text-decoration: underline;">
-                                            franco.condor.urp@gmail.com
-                                        </a>
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Education</span>
-                                </div>
-                                <p>
-                                    <span>: Ricardo Palma University, Lima</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Mobile Number</span>
-                                </div>
-                                <p>
-                                    <span>: +51 941400584</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-globe-africa"></i>
-                                    <span>Languages</span>
-                                </div>
-                                <p>
-                                    <span>: Spanish, English</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-icons">
-                            <div class="contact-icon">
-                                <!-- <a href="https://www.facebook.com/franco.condor" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a> -->
-                                <!-- <a href="https://twitter.com/franco_condor" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a> -->
-                                <a href="https://github.com/francocondor" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/francocondor/" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <!-- <a href="https://youtube.com/@spiderchato" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-contact">
-                        <form action="" class="contact-form">
-                            <div class="input-control i-c-2">
-                                <input type="text" required placeholder="YOUR NAME">
-                                <input type="email" required placeholder="YOUR EMAIL">
-                            </div>
-                            <div class="input-control">
-                                <input type="text" required placeholder="ENTER SUBJECT">
-                            </div>
-                            <div class="input-control">
-                                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
-                            </div>
-                            <div class="submit-btn">
-                                <button class="main-btn" type="submit"
-                                    style="background-color: transparent;background-repeat: no-repeat;">
-                                    <span class="btn-text">Submit</span>
-                                    <span class="btn-icon"><i class="fas fa-envelope"></i></span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <div class="controls">
-        <div class="control active-btn" data-id="home">
-            <i class="fas fa-home"></i>
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center">
+                        <div class="w-4/5 h-40 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Authentication Microservice</h3>
+                        <p class="text-slate-600 mb-4">
+                            A secure authentication service with JWT, OAuth2, and multi-factor authentication support
+                            for enterprise applications.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MySQL</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Redis</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fab fa-github mr-1"></i> Repository
+                            </a>
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-slate-200 flex items-center justify-center">
+                        <div class="w-4/5 h-40 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Real-time Data Processing Pipeline</h3>
+                        <p class="text-slate-600 mb-4">
+                            A data processing system that ingests, transforms, and analyzes large volumes of streaming
+                            data for business intelligence.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Kafka</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MongoDB</span>
+                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">AWS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fab fa-github mr-1"></i> Repository
+                            </a>
+                            <a href="#" class="text-cyan hover:text-blue transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="control" data-id="about">
-            <i class="fas fa-user"></i>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Get In Touch</h2>
+            <div class="flex flex-col md:flex-row gap-10">
+                <div class="md:w-1/2">
+                    <form class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-slate-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                placeholder="Your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-slate-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                placeholder="Your email">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-slate-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-3 rounded-lg gradient-bg text-white font-medium transition-all hover:shadow-lg hover:shadow-cyan/30">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-cyan mr-4">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p class="text-slate-600">franco.condor.urp@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-cyan mr-4">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Phone</h4>
+                                    <p class="text-slate-600">+51 941 400 584</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-cyan mr-4">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Location</h4>
+                                    <p class="text-slate-600">Lima, Peru</p>
+                                </div>
+                            </div>
+                            <div class="pt-6">
+                                <h4 class="font-medium mb-3">Connect with me</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/francocondor"
+                                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-cyan hover:text-blue transition-colors">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/francocondor/"
+                                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-cyan hover:text-blue transition-colors">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <!-- <a href="#"
+                                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-cyan hover:text-blue transition-colors">
+                                        <i class="fab fa-dev"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="control" data-id="portfolio">
-            <i class="fas fa-briefcase"></i>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-900 text-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-lg font-semibold gradient-text">franco.condor</p>
+                    <p class="text-slate-400">Backend Developer</p>
+                </div>
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" class="text-cyan hover:text-blue transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-cyan hover:text-blue transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-cyan hover:text-blue transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-cyan hover:text-blue transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="#"
+                        class="px-4 py-2 border border-cyan text-cyan hover:border-blue hover:text-blue rounded-lg transition-colors">
+                        <i class="fas fa-download mr-2"></i> Download CV
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-slate-400">
+                <p>&copy; 2023 Franco Condor. All rights reserved.</p>
+            </div>
         </div>
-        <!-- <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
-        </div> -->
-        <div class="control" data-id="contact">
-            <i class="fas fa-envelope-open"></i>
-        </div>
-    </div>
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
-    </div>
-    <script src="app.js"></script>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navigation active state
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // In a real implementation, you would send this data to a server
+            console.log('Form submitted:', { name, email, message });
+
+            // Show success message (in a real app)
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Terminal typing effect for home section
+        const terminalContent = document.getElementById('terminal-content');
+
+        // Define the terminal lines with proper formatting
+        const terminalLines = [
+            { type: 'command', text: 'whoami' },
+            { type: 'output', text: 'Backend Developer' },
+            { type: 'command', text: 'ls -la skills/' },
+            { type: 'output', text: 'PHP  Java  JavaScript  Python' },
+            { type: 'command', text: 'echo $STATUS' },
+            { type: 'highlight', text: 'Ready to discuss your next project!' },
+            { type: 'cursor', text: '' }
+        ];
+
+        // Function to create a terminal line with proper styling
+        function createTerminalLine(lineData) {
+            const lineElement = document.createElement('div');
+            lineElement.className = 'terminal-line';
+
+            if (lineData.type === 'command') {
+                const prompt = document.createElement('span');
+                prompt.className = 'terminal-prompt';
+                prompt.textContent = 'franco@backend-dev:~$ ';
+
+                const command = document.createElement('span');
+                command.className = 'terminal-output';
+                command.textContent = lineData.text;
+
+                lineElement.appendChild(prompt);
+                lineElement.appendChild(command);
+            }
+            else if (lineData.type === 'highlight') {
+                const output = document.createElement('span');
+                output.className = 'terminal-highlight';
+                output.textContent = lineData.text;
+                lineElement.appendChild(output);
+            }
+            else if (lineData.type === 'cursor') {
+                const prompt = document.createElement('span');
+                prompt.className = 'terminal-prompt';
+                prompt.textContent = 'franco@backend-dev:~$ ';
+
+                const cursor = document.createElement('span');
+                cursor.className = 'terminal-cursor';
+
+                lineElement.appendChild(prompt);
+                lineElement.appendChild(cursor);
+            }
+            else {
+                const output = document.createElement('span');
+                output.className = 'terminal-output';
+                output.textContent = lineData.text;
+                lineElement.appendChild(output);
+            }
+
+            return lineElement;
+        }
+
+        // Function to animate typing for a specific line
+        function typeWriter(element, text, i, cb) {
+            if (i < text.length) {
+                if (element.childNodes.length > 0 && element.lastChild.nodeType === Node.TEXT_NODE) {
+                    element.lastChild.nodeValue += text.charAt(i);
+                } else {
+                    element.appendChild(document.createTextNode(text.charAt(i)));
+                }
+                i++;
+                setTimeout(() => typeWriter(element, text, i, cb), 20);
+            } else if (cb) {
+                setTimeout(cb, 300);
+            }
+        }
+
+        // Function to animate the entire terminal
+        function animateTerminal() {
+            terminalContent.innerHTML = '';
+            let currentLineIndex = 0;
+
+            function processNextLine() {
+                if (currentLineIndex >= terminalLines.length) return;
+
+                const lineData = terminalLines[currentLineIndex];
+                const lineElement = createTerminalLine(lineData);
+
+                // For command and highlight types, we want to animate the typing
+                if (lineData.type === 'command') {
+                    const commandSpan = lineElement.querySelector('.terminal-output');
+                    commandSpan.textContent = '';
+                    terminalContent.appendChild(lineElement);
+
+                    typeWriter(commandSpan, lineData.text, 0, () => {
+                        currentLineIndex++;
+                        setTimeout(processNextLine, 200);
+                    });
+                }
+                else if (lineData.type === 'highlight') {
+                    const highlightSpan = lineElement.querySelector('.terminal-highlight');
+                    highlightSpan.textContent = '';
+                    terminalContent.appendChild(lineElement);
+
+                    typeWriter(highlightSpan, lineData.text, 0, () => {
+                        currentLineIndex++;
+                        setTimeout(processNextLine, 200);
+                    });
+                }
+                else {
+                    // For output and cursor, just append them
+                    terminalContent.appendChild(lineElement);
+                    currentLineIndex++;
+                    setTimeout(processNextLine, 200);
+                }
+            }
+
+            // Start the animation
+            processNextLine();
+        }
+
+        // Start the animation when the page loads
+        window.addEventListener('load', animateTerminal);
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'957abc2c237a3c1b',t:'MTc1MTI1NTgwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
