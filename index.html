@@ -53,6 +53,30 @@
             }
         }
     </script>
+
+    <!-- Theme Detection Script - Must run before page render to prevent FOUC -->
+    <script>
+        (function() {
+            // Check for saved theme preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Determine theme: saved preference > system preference > default (light)
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            
+            // Apply theme immediately to prevent flash
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            // Store the theme if not already saved
+            if (!savedTheme) {
+                localStorage.setItem('theme', theme);
+            }
+        })();
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
@@ -60,7 +84,27 @@
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
             @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100;
+        }
+
+        /* Smooth transitions for theme switching */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Override transitions for elements that shouldn't animate */
+        .nav-indicator, .terminal-cursor, .floating, .project-card {
+            transition: none;
+        }
+
+        /* Restore specific transitions for interactive elements */
+        .nav-indicator {
+            transition: transform 0.3s ease;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
         }
 
         .gradient-text {
@@ -264,8 +308,11 @@
                     <span class="nav-indicator"></span>
                 </a>
             </nav>
-            <button id="theme-toggle" class="hidden md:flex items-center px-3 py-2 text-slate-900 dark:text-slate-100 hover:text-cyan font-medium transition-colors">
-                <i class="fas fa-moon mr-2"></i>
+            <button id="theme-toggle" 
+                    class="hidden md:flex items-center px-3 py-2 text-slate-900 dark:text-slate-100 hover:text-cyan font-medium transition-colors"
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode">
+                <i class="fas fa-moon mr-2" aria-hidden="true"></i>
                 <span>Dark Mode</span>
             </button>
             <button class="md:hidden text-slate-900 dark:text-slate-100" id="mobile-menu-button">
@@ -283,8 +330,11 @@
                 <a href="#skills" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Skills</a>
                 <a href="#projects" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Projects</a>
                 <a href="#contact" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Contact</a>
-                <button id="mobile-theme-toggle" class="flex items-center text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">
-                    <i class="fas fa-moon mr-2"></i>
+                <button id="mobile-theme-toggle" 
+                        class="flex items-center text-slate-900 dark:text-slate-100 hover:text-cyan font-medium"
+                        aria-label="Toggle dark mode"
+                        title="Toggle dark mode">
+                    <i class="fas fa-moon mr-2" aria-hidden="true"></i>
                     <span>Dark Mode</span>
                 </button>
             </div>
@@ -1439,22 +1489,13 @@
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const body = document.body;
+        const html = document.documentElement;
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply the theme on page load
-        applyTheme(currentTheme);
-
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark');
-                updateToggleButton(true);
-            } else {
-                body.classList.remove('dark');
-                updateToggleButton(false);
-            }
+        // Initialize theme toggle buttons based on current theme
+        function initializeThemeToggle() {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            const isDark = currentTheme === 'dark';
+            updateToggleButton(isDark);
         }
 
         function updateToggleButton(isDark) {
@@ -1466,24 +1507,64 @@
                 if (isDark) {
                     icon.className = 'fas fa-sun mr-2';
                     text.textContent = 'Light Mode';
+                    button.setAttribute('aria-label', 'Switch to light mode');
+                    button.setAttribute('title', 'Switch to light mode');
                 } else {
                     icon.className = 'fas fa-moon mr-2';
                     text.textContent = 'Dark Mode';
+                    button.setAttribute('aria-label', 'Switch to dark mode');
+                    button.setAttribute('title', 'Switch to dark mode');
                 }
             });
         }
 
         function toggleTheme() {
-            const isDark = body.classList.contains('dark');
+            const isDark = html.classList.contains('dark');
             const newTheme = isDark ? 'light' : 'dark';
             
+            if (newTheme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
             localStorage.setItem('theme', newTheme);
-            applyTheme(newTheme);
+            updateToggleButton(newTheme === 'dark');
         }
+
+        // Initialize theme toggles when page loads
+        initializeThemeToggle();
 
         // Add event listeners to both toggle buttons
         themeToggle.addEventListener('click', toggleTheme);
         mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // Add keyboard support (Enter and Space)
+        [themeToggle, mobileThemeToggle].forEach(button => {
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleTheme();
+                }
+            });
+        });
+
+        // Listen for system theme changes
+        if (window.matchMedia) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', (e) => {
+                // Only update if user hasn't set a preference
+                if (!localStorage.getItem('theme')) {
+                    const newTheme = e.matches ? 'dark' : 'light';
+                    if (newTheme === 'dark') {
+                        html.classList.add('dark');
+                    } else {
+                        html.classList.remove('dark');
+                    }
+                    updateToggleButton(newTheme === 'dark');
+                }
+            });
+        }
     </script>
 </body>
 
