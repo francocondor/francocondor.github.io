@@ -92,6 +92,14 @@
             background-size: 50% 50%;
         }
 
+        @media (prefers-color-scheme: dark) {
+            .pattern-bg {
+                background-image:
+                    radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.03) 0%, transparent 20%),
+                    radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.03) 0%, transparent 20%);
+            }
+        }
+
         .terminal {
             background-color: #1e293b;
             border-radius: 0.5rem;
@@ -551,17 +559,17 @@
 
             <!-- Frameworks & Libraries -->
             <div class="mb-16">
-                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                <h3 class="text-xl font-semibold mb-6 flex items-center text-slate-900 dark:text-slate-100">
                     <div class="hexagon mr-4 w-10 h-12 flex-shrink-0">
                         <i class="fas fa-layer-group"></i>
                     </div>
                     Frameworks & Libraries
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Laravel</h4>
-                            <span class="text-sm text-slate-600">Expert</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Laravel</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Expert</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -570,14 +578,14 @@
                             <div class="skill-dot filled"></div>
                             <div class="skill-dot filled"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Advanced Eloquent ORM, custom package development, and API architecture.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Spring</h4>
-                            <span class="text-sm text-slate-600">Advanced</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Spring</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Advanced</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -586,14 +594,14 @@
                             <div class="skill-dot filled"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Spring Boot, Spring Security, and microservices architecture.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Vue.js</h4>
-                            <span class="text-sm text-slate-600">Advanced</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Vue.js</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Advanced</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -602,15 +610,15 @@
                             <div class="skill-dot filled"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Building dynamic and reactive user interfaces, often integrating with robust backend APIs
                             developed in Laravel/Spring.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Angular</h4>
-                            <span class="text-sm text-slate-600">Advanced</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Angular</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Advanced</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -619,15 +627,15 @@
                             <div class="skill-dot filled"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Developing complex, single-page applications, consuming and optimizing RESTful APIs from the
                             backend.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Express</h4>
-                            <span class="text-sm text-slate-600">Intermediate</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Express</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Intermediate</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -636,14 +644,14 @@
                             <div class="skill-dot empty"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             RESTful API development, middleware implementation, and authentication.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">FastAPI</h4>
-                            <span class="text-sm text-slate-600">Intermediate</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">FastAPI</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Intermediate</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -652,7 +660,7 @@
                             <div class="skill-dot empty"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Creating high-performance APIs with Python based on standard Python type hints.
                         </p>
                     </div>
@@ -661,17 +669,17 @@
 
             <!-- Databases & DevOps -->
             <div>
-                <h3 class="text-xl font-semibold mb-6 flex items-center">
+                <h3 class="text-xl font-semibold mb-6 flex items-center text-slate-900 dark:text-slate-100">
                     <div class="hexagon mr-4 w-10 h-12 flex-shrink-0">
                         <i class="fas fa-database"></i>
                     </div>
                     Databases & DevOps
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">MySQL</h4>
-                            <span class="text-sm text-slate-600">Expert</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">MySQL</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Expert</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -680,14 +688,14 @@
                             <div class="skill-dot filled"></div>
                             <div class="skill-dot filled"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Complex query optimization, indexing strategies, and replication setup.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">PostgreSQL</h4>
-                            <span class="text-sm text-slate-600">Advanced</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">PostgreSQL</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Advanced</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -696,14 +704,14 @@
                             <div class="skill-dot filled"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Advanced data types, JSON operations, and performance tuning.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Docker</h4>
-                            <span class="text-sm text-slate-600">Intermediate</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Docker</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Intermediate</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -712,14 +720,14 @@
                             <div class="skill-dot empty"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Container orchestration, multi-stage builds, and custom images.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">MongoDB</h4>
-                            <span class="text-sm text-slate-600">Intermediate</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">MongoDB</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Intermediate</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -728,14 +736,14 @@
                             <div class="skill-dot empty"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Document design, aggregation framework, and sharding configuration.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">AWS</h4>
-                            <span class="text-sm text-slate-600">Intermediate</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">AWS</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Intermediate</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -744,14 +752,14 @@
                             <div class="skill-dot empty"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             EC2, S3, RDS, Lambda, and CloudFormation deployment.
                         </p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-cyan">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-t-4 border-cyan">
                         <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold">Digital Ocean</h4>
-                            <span class="text-sm text-slate-600">Intermediate</span>
+                            <h4 class="font-semibold text-slate-900 dark:text-slate-100">Digital Ocean</h4>
+                            <span class="text-sm text-slate-600 dark:text-slate-400">Intermediate</span>
                         </div>
                         <div class="skill-level">
                             <div class="skill-dot filled"></div>
@@ -760,7 +768,7 @@
                             <div class="skill-dot empty"></div>
                             <div class="skill-dot empty"></div>
                         </div>
-                        <p class="mt-3 text-sm text-slate-600">
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
                             Deploying and managing applications using Droplets, Volumes, and App Platform.
                         </p>
                     </div>
@@ -770,13 +778,13 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20">
+    <section id="projects" class="py-20 bg-white dark:bg-slate-800">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
-                    <div class="h-48 bg-slate-200 flex items-center justify-center">
+                <div class="project-card bg-white dark:bg-slate-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -784,8 +792,8 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Enterprise Content Management System (CMS) Platform</h3>
-                        <p class="text-slate-600 mb-4">
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Enterprise Content Management System (CMS) Platform</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Development of a robust and scalable CMS for dynamic content administration, with advanced
                             user roles and database optimization.
                         </p>
@@ -807,8 +815,8 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
-                    <div class="h-48 bg-slate-200 flex items-center justify-center">
+                <div class="project-card bg-white dark:bg-slate-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -816,8 +824,8 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">High-Volume B2B E-commerce System</h3>
-                        <p class="text-slate-600 mb-4">
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">High-Volume B2B E-commerce System</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Backend for a high-volume B2B e-commerce system, designed to handle real-time inventory
                             management and payment gateways.
                         </p>
@@ -1112,29 +1120,29 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-slate-50">
+    <section id="contact" class="py-20 bg-slate-50 dark:bg-slate-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Get In Touch</h2>
             <div class="flex flex-col md:flex-row gap-10">
                 <div class="md:w-1/2">
                     <form action="https://formspree.io/f/xeokneld" method="POST"
-                        class="bg-white p-8 rounded-lg shadow-md">
+                        class="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md">
                         <div class="mb-6">
-                            <label for="name" class="block text-slate-700 font-medium mb-2">Name</label>
+                            <label for="name" class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Name</label>
                             <input type="text" id="name" name="name"
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                class="w-full px-4 py-2 border dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
                                 placeholder="Your name" required>
                         </div>
                         <div class="mb-6">
-                            <label for="email" class="block text-slate-700 font-medium mb-2">Email</label>
+                            <label for="email" class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Email</label>
                             <input type="email" id="email" name="email"
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                class="w-full px-4 py-2 border dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
                                 placeholder="Your email" required>
                         </div>
                         <div class="mb-6">
-                            <label for="message" class="block text-slate-700 font-medium mb-2">Message</label>
+                            <label for="message" class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Message</label>
                             <textarea id="message" name="message" rows="5"
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                class="w-full px-4 py-2 border dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
                                 placeholder="Your message" required></textarea>
                         </div>
                         <button type="submit"
@@ -1144,16 +1152,16 @@
                     </form>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
-                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-semibold mb-6 text-slate-900 dark:text-slate-100">Contact Information</h3>
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="text-cyan mr-4">
                                     <i class="fas fa-envelope text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium mb-1">Email</h4>
-                                    <p class="text-slate-600">franco.condor.urp@gmail.com</p>
+                                    <h4 class="font-medium mb-1 text-slate-900 dark:text-slate-100">Email</h4>
+                                    <p class="text-slate-600 dark:text-slate-400">franco.condor.urp@gmail.com</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1161,8 +1169,8 @@
                                     <i class="fas fa-phone text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium mb-1">Phone</h4>
-                                    <p class="text-slate-600">+51 941 400 584</p>
+                                    <h4 class="font-medium mb-1 text-slate-900 dark:text-slate-100">Phone</h4>
+                                    <p class="text-slate-600 dark:text-slate-400">+51 941 400 584</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1170,23 +1178,23 @@
                                     <i class="fas fa-map-marker-alt text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium mb-1">Location</h4>
-                                    <p class="text-slate-600">Lima, Peru</p>
+                                    <h4 class="font-medium mb-1 text-slate-900 dark:text-slate-100">Location</h4>
+                                    <p class="text-slate-600 dark:text-slate-400">Lima, Peru</p>
                                 </div>
                             </div>
                             <div class="pt-6">
-                                <h4 class="font-medium mb-3">Connect with me</h4>
+                                <h4 class="font-medium mb-3 text-slate-900 dark:text-slate-100">Connect with me</h4>
                                 <div class="flex space-x-4">
                                     <a href="https://github.com/francocondor" target="_blank"
-                                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-cyan hover:text-blue transition-colors">
+                                        class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-cyan hover:text-blue transition-colors">
                                         <i class="fab fa-github"></i>
                                     </a>
                                     <a href="https://www.linkedin.com/in/francocondor/" target="_blank"
-                                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-cyan hover:text-blue transition-colors">
+                                        class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-cyan hover:text-blue transition-colors">
                                         <i class="fab fa-linkedin-in"></i>
                                     </a>
                                     <!-- <a href="#"
-                                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-cyan hover:text-blue transition-colors">
+                                        class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-cyan hover:text-blue transition-colors">
                                         <i class="fab fa-dev"></i>
                                     </a> -->
                                 </div>
@@ -1199,12 +1207,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-slate-900 text-slate-50">
+    <footer class="py-8 bg-slate-900 dark:bg-slate-950 text-slate-50 dark:text-slate-100">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
                     <p class="text-lg font-semibold gradient-text">franco.condor</p>
-                    <p class="text-slate-400">Backend Developer</p>
+                    <p class="text-slate-400 dark:text-slate-500">Backend Developer</p>
                 </div>
                 <div class="flex space-x-6 mb-4 md:mb-0">
                     <a href="https://github.com/francocondor" class="text-cyan hover:text-blue transition-colors"
@@ -1223,7 +1231,7 @@
                     </a>
                 </div>
             </div>
-            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-slate-400">
+            <div class="mt-8 pt-6 border-t border-slate-800 dark:border-slate-700 text-center text-slate-400 dark:text-slate-500">
                 <p>&copy; <span id="current-year"></span> Franco Condor. All rights reserved.</p>
             </div>
         </div>
