@@ -10,6 +10,9 @@
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-cyan-300: oklch(86.5% 0.127 207.078);
+    --color-cyan-600: oklch(60.9% 0.126 221.723);
+    --color-cyan-700: oklch(52% 0.105 223.128);
     --color-slate-50: #f8fafc;
     --color-slate-100: #f1f5f9;
     --color-slate-200: #e2e8f0;
@@ -202,6 +205,9 @@
   }
 }
 @layer utilities {
+  .\!static {
+    position: static !important;
+  }
   .absolute {
     position: absolute;
   }
@@ -216,6 +222,9 @@
   }
   .inset-1 {
     inset: calc(var(--spacing) * 1);
+  }
+  .z-10 {
+    z-index: 10;
   }
   .z-50 {
     z-index: 50;
@@ -331,6 +340,9 @@
   .h-full {
     height: 100%;
   }
+  .min-h-\[540px\] {
+    min-height: 540px;
+  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -393,9 +405,6 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
-  }
-  .gap-8 {
-    gap: calc(var(--spacing) * 8);
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
