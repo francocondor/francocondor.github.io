@@ -8,6 +8,12 @@ mobileMenuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
+// close-mobile-menu
+const closeMobileMenu = document.getElementById('close-mobile-menu');
+closeMobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+});
+
 // Dark mode toggle
 const themeToggle = document.getElementById('theme-toggle');
 const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -321,14 +327,12 @@ function getProjectSVG(imageName) {
 
 // Renderizado dinámico de proyectos en el slider
 async function renderProjectsSlider() {
-    console.log('renderProjectsSlider called');
     const response = await fetch('./src/projects.json');
     const projects = await response.json();
     const wrapper = document.querySelector('.swiper-wrapper');
     wrapper.innerHTML = '';
 
     projects.forEach(project => {
-        console.log(project);
         const slide = document.createElement('div');
         slide.className = 'swiper-slide project-card bg-white dark:bg-slate-900 rounded-lg overflow-hidden shadow-lg';
 

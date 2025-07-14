@@ -269,7 +269,8 @@
             </nav>
             <div class="flex items-center space-x-4">
                 <button id="theme-toggle"
-                    class="cursor-pointer p-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors duration-200">
+                    class="cursor-pointer p-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors duration-200"
+                    aria-label="Toggle theme">
                     <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -281,7 +282,10 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </button>
-                <button class="md:hidden text-slate-900 dark:text-slate-100" id="mobile-menu-button">
+                <button
+                    class="md:hidden text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan rounded-lg p-2"
+                    id="mobile-menu-button" aria-label="Abrir menú móvil" aria-controls="mobile-menu"
+                    aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -289,22 +293,32 @@
                     </svg>
                 </button>
             </div>
-            <!-- Mobile menu -->
-            <div class="md:hidden hidden bg-white dark:bg-slate-800" id="mobile-menu">
-                <div class="px-4 py-2 space-y-3">
-                    <a href="#home"
-                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Home</a>
-                    <a href="#about"
-                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">About</a>
-                    <a href="#skills"
-                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Skills</a>
-                    <a href="#projects"
-                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Projects</a>
-                    <a href="#contact"
-                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Contact</a>
-                </div>
-            </div>
+        </div>
     </header>
+
+    <!-- Menú móvil fuera del header para mejor accesibilidad y estructura -->
+    <nav id="mobile-menu"
+        class="fixed inset-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm flex flex-col items-center justify-center space-y-8 md:hidden transition-all duration-300 opacity-0 pointer-events-none"
+        role="dialog" aria-modal="true" aria-label="Menú móvil">
+        <a href="#home"
+            class="text-2xl font-semibold text-slate-900 dark:text-slate-100 hover:text-cyan transition-colors"
+            tabindex="0">Home</a>
+        <a href="#about"
+            class="text-2xl font-semibold text-slate-900 dark:text-slate-100 hover:text-cyan transition-colors"
+            tabindex="0">About</a>
+        <a href="#skills"
+            class="text-2xl font-semibold text-slate-900 dark:text-slate-100 hover:text-cyan transition-colors"
+            tabindex="0">Skills</a>
+        <a href="#projects"
+            class="text-2xl font-semibold text-slate-900 dark:text-slate-100 hover:text-cyan transition-colors"
+            tabindex="0">Projects</a>
+        <a href="#contact"
+            class="text-2xl font-semibold text-slate-900 dark:text-slate-100 hover:text-cyan transition-colors"
+            tabindex="0">Contact</a>
+        <button id="close-mobile-menu"
+            class="mt-8 px-6 py-2 rounded-lg border-2 border-cyan text-cyan hover:border-blue hover:text-blue font-medium transition-colors"
+            aria-label="Cerrar menú móvil">Cerrar</button>
+    </nav>
 
     <!-- Home Section -->
     <section id="home" class="min-h-screen flex items-center pt-16">
@@ -352,13 +366,13 @@
             <h2 class="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0">
-                    <div class="relative w-64 h-64 mx-auto">
+                    <div class="relative w-64 h-64 mx-auto" style="z-index: 0;">
                         <div
                             class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan to-blue opacity-30 blur-lg">
                         </div>
                         <div class="absolute inset-1 bg-white dark:bg-slate-700 rounded-full overflow-hidden">
                             <img src="./img/Franco.jpg" alt="Franco Condor"
-                                class="w-full h-full object-cover rounded-full shadow-lg">
+                                class="w-full h-full object-cover rounded-full shadow-lg" >
                         </div>
                     </div>
                     <div class="flex justify-center mt-6 space-x-4">
@@ -924,7 +938,7 @@
     </style>
     <script>
     </script>
-    <script src="./src/index.js?v=1.0.0"></script>
+    <script src="./src/index.js?v=1.0.2"></script>
 
 
 </body>
