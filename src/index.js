@@ -3,15 +3,22 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 // Mobile menu toggle
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
+const closeMobileMenu = document.getElementById('close-mobile-menu');
 
 mobileMenuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
-// close-mobile-menu
-const closeMobileMenu = document.getElementById('close-mobile-menu');
-closeMobileMenu.addEventListener('click', () => {
+// Función para cerrar el menú móvil
+function closeMenuMobile() {
     mobileMenu.classList.add('hidden');
+}
+closeMobileMenu.addEventListener('click', closeMenuMobile);
+
+// Cerrar menú al hacer click en cualquier link de sección del menú mobile
+const mobileMenuLinks = mobileMenu.querySelectorAll('a[href^="#"]');
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', closeMenuMobile);
 });
 
 // Dark mode toggle
