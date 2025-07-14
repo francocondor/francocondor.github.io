@@ -1,2 +1,31 @@
-# PHPStorm
-.idea
+# IDEs
+.idea/
+.vscode/
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos de salida de Tailwind y CSS
+src/output.css
+src/*.css
+!src/input.css
+!src/index.js
+
+# Archivos de salida de SCSS
+styles/*.css
+!styles/styles.scss
+!styles/_media.scss
+styles/*.css.map
+
+# Archivos del sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Archivos de entorno
+.env
+.env.*
