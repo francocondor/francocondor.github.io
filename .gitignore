@@ -9,8 +9,6 @@ yarn.lock
 pnpm-lock.yaml
 
 # Archivos de salida de Tailwind y CSS
-src/output.css
-src/*.css
 !src/input.css
 !src/index.js
 
