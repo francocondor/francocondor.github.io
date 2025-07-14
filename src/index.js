@@ -1,4 +1,3 @@
-
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
 // Mobile menu toggle
@@ -248,3 +247,157 @@ contactForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent form submission if validation fails
     }
 });
+
+// Devuelve el SVG original según el nombre de imagen del proyecto
+function getProjectSVG(imageName) {
+    switch (imageName) {
+        case 'svg-cms':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2m14 0h-6m6 0h-2.5M19 11v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2m14 0h-6m6 0h-2.5" />
+                            </svg>`;
+        case 'svg-b2b':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>`;
+        case 'svg-spa':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2m0 0V5h6M9 7h6" />
+                            </svg>`;
+        case 'svg-microservices':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>`;
+        case 'svg-portal':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>`;
+        case 'svg-booking':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>`;
+        case 'svg-logistics':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>`;
+        case 'svg-streaming':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>`;
+        case 'svg-auth':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>`;
+        case 'svg-automation':
+            return `<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-cyan" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>`;
+        default:
+            // SVG genérico si no hay coincidencia
+            return `<svg xmlns='http://www.w3.org/2000/svg' class='h-24 w-24 text-cyan' fill='none' viewBox='0 0 24 24' stroke='currentColor'><circle cx='12' cy='12' r='10' stroke-width='2' /></svg>`;
+    }
+}
+
+// Renderizado dinámico de proyectos en el slider
+async function renderProjectsSlider() {
+    console.log('renderProjectsSlider called');
+    const response = await fetch('./src/projects.json');
+    const projects = await response.json();
+    const wrapper = document.querySelector('.swiper-wrapper');
+    wrapper.innerHTML = '';
+
+    projects.forEach(project => {
+        console.log(project);
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide project-card bg-white dark:bg-slate-900 rounded-lg overflow-hidden shadow-lg';
+
+        // Imagen o SVG (puedes personalizar esto según tu preferencia)
+        const imgDiv = document.createElement('div');
+        imgDiv.className = 'h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center';
+        imgDiv.innerHTML = getProjectSVG(project.image);
+
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'p-6 flex flex-col h-full';
+
+        const title = document.createElement('h3');
+        title.className = 'text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100';
+        title.textContent = project.title;
+
+        const desc = document.createElement('p');
+        desc.className = 'text-slate-600 dark:text-slate-400 mb-4';
+        desc.textContent = project.description;
+
+        const tagsDiv = document.createElement('div');
+        tagsDiv.className = 'flex flex-wrap gap-2 mb-4';
+        project.tags.forEach(tag => {
+            const tagSpan = document.createElement('span');
+            tagSpan.className = 'px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full';
+            tagSpan.textContent = tag;
+            tagsDiv.appendChild(tagSpan);
+        });
+
+        const linksDiv = document.createElement('div');
+        linksDiv.className = 'flex space-x-4';
+        const repoLink = document.createElement('a');
+        repoLink.href = project.repo;
+        repoLink.className = 'text-cyan hover:text-blue transition-colors';
+        repoLink.innerHTML = `<i class='fab fa-github mr-1'></i> ${project.repoLabel}`;
+        linksDiv.appendChild(repoLink);
+
+        contentDiv.appendChild(title);
+        contentDiv.appendChild(desc);
+        contentDiv.appendChild(tagsDiv);
+        contentDiv.appendChild(linksDiv);
+
+        slide.appendChild(imgDiv);
+        slide.appendChild(contentDiv);
+        wrapper.appendChild(slide);
+    });
+
+    // Re-inicializar Swiper para que detecte los nuevos slides
+    if (window.swiper) {
+        window.swiper.update();
+    }
+
+
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 32,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+}
+
+window.addEventListener('DOMContentLoaded', renderProjectsSlider);

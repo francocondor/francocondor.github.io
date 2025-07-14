@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Enterprise Content Management System (CMS) Platform",
+    "description": "Development of a robust and scalable CMS for dynamic content administration, with advanced user roles and database optimization.",
+    "tags": ["PHP", "Laravel", "MySQL", "Vue.js"],
+    "image": "svg-cms",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "High-Volume B2B E-commerce System",
+    "description": "Backend for a high-volume B2B e-commerce system, designed to handle real-time inventory management and payment gateways.",
+    "tags": ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+    "image": "svg-b2b",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Project Management Application (SPA)",
+    "description": "Development of a complete Single Page Application (SPA) for collaborative project management, with interactive user interface and real-time communication.",
+    "tags": ["Angular", "TypeScript", "Laravel (API)", "MySQL"],
+    "image": "svg-spa",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Microservices API for Financial Services",
+    "description": "Design and implementation of a microservices suite to process financial transactions, ensuring high availability, security, and data consistency.",
+    "tags": ["Java", "Spring Cloud", "PostgreSQL", "AWS"],
+    "image": "svg-microservices",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Personalized Customer Portal with Dashboard",
+    "description": "Development of a web portal where clients can access their information, history, and an interactive dashboard with relevant data.",
+    "tags": ["Vue.js", "JavaScript", "PHP", "Laravel", "MySQL"],
+    "image": "svg-portal",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Online Booking and Scheduling System",
+    "description": "Complete web application for managing service bookings, with availability optimization and automated notifications.",
+    "tags": ["PHP", "Laravel", "MySQL", "Angular"],
+    "image": "svg-booking",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Backend for Mobile Logistics Application",
+    "description": "Development of a high-performance RESTful API for a mobile logistics application, including shipment tracking and route management.",
+    "tags": ["JavaScript", "Express", "MongoDB", "Digital Ocean"],
+    "image": "svg-logistics",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Real-time Data Streaming Platform",
+    "description": "Implementation of a system for ingesting and processing large volumes of real-time data, with instant analysis and visualization.",
+    "tags": ["Python", "FastAPI", "PostgreSQL", "Docker"],
+    "image": "svg-streaming",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Centralized Authentication and Authorization System",
+    "description": "Microservice dedicated to user management, authentication (JWT, OAuth2), and role-based authorization for multiple client applications.",
+    "tags": ["PHP", "Laravel", "MySQL"],
+    "image": "svg-auth",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  },
+  {
+    "title": "Administrative Task Automation Tool",
+    "description": "Creation of an internal application to automate complex administrative processes, improving operational efficiency and reducing manual errors.",
+    "tags": ["Java", "Spring Boot", "PostgreSQL", "Vue.js"],
+    "image": "svg-automation",
+    "repo": "#",
+    "repoLabel": "Private Repository"
+  }
+]
