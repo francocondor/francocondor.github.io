@@ -26,41 +26,8 @@
     <meta property="twitter:description"
         content="Franco Condor's Portfolio, Backend Developer specialized in PHP, Java, Python, Laravel, Spring, and scalable APIs.">
     <meta property="twitter:image" content="https://francocondor.github.io/img/home_screenshot.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+     <link href="./src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class', // Enable dark mode based on class
-            theme: {
-                extend: {
-                    colors: {
-                        cyan: {
-                            light: '#22d3ee',
-                            DEFAULT: '#06b6d4',
-                            dark: '#0891b2',
-                        },
-                        blue: {
-                            light: '#60a5fa',
-                            DEFAULT: '#3b82f6',
-                            dark: '#2563eb',
-                        },
-                        slate: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
@@ -265,59 +232,77 @@
     </style>
 </head>
 
-<body class="pattern-bg bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body
+    class="pattern-bg bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
     <!-- Header -->
-    <header class="fixed w-full bg-white dark:bg-slate-800 bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md z-50">
+    <header
+        class="fixed w-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-md z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold gradient-text">franco.condor</a>
             <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">
+                <a href="#home"
+                    class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan dark:hover:text-slate-300 font-medium">
                     Home
                     <span class="nav-indicator"></span>
                 </a>
-                <a href="#about" class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">
+                <a href="#about"
+                    class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan dark:hover:text-slate-300 font-medium">
                     About
                     <span class="nav-indicator"></span>
                 </a>
-                <a href="#skills" class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">
+                <a href="#skills"
+                    class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan dark:hover:text-slate-300 font-medium">
                     Skills
                     <span class="nav-indicator"></span>
                 </a>
-                <a href="#projects" class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">
+                <a href="#projects"
+                    class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan dark:hover:text-slate-300 font-medium">
                     Projects
                     <span class="nav-indicator"></span>
                 </a>
-                <a href="#contact" class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">
+                <a href="#contact"
+                    class="nav-link relative text-slate-900 dark:text-slate-100 hover:text-cyan dark:hover:text-slate-300 font-medium">
                     Contact
                     <span class="nav-indicator"></span>
                 </a>
             </nav>
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors duration-200">
-                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <button id="theme-toggle"
+                    class="cursor-pointer p-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors duration-200">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
-                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            clip-rule="evenodd"></path>
                     </svg>
                 </button>
                 <button class="md:hidden text-slate-900 dark:text-slate-100" id="mobile-menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white dark:bg-slate-800" id="mobile-menu">
-            <div class="px-4 py-2 space-y-3">
-                <a href="#home" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Home</a>
-                <a href="#about" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">About</a>
-                <a href="#skills" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Skills</a>
-                <a href="#projects" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Projects</a>
-                <a href="#contact" class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Contact</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
-        </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden bg-white dark:bg-slate-800" id="mobile-menu">
+                <div class="px-4 py-2 space-y-3">
+                    <a href="#home"
+                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Home</a>
+                    <a href="#about"
+                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">About</a>
+                    <a href="#skills"
+                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Skills</a>
+                    <a href="#projects"
+                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Projects</a>
+                    <a href="#contact"
+                        class="block text-slate-900 dark:text-slate-100 hover:text-cyan font-medium">Contact</a>
+                </div>
+            </div>
     </header>
 
     <!-- Home Section -->
@@ -407,7 +392,8 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">API Development</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-400">Designing, building, and optimizing robust RESTful
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Designing, building, and
+                                    optimizing robust RESTful
                                     APIs, ensuring high performance, security, and seamless integration for diverse
                                     applications.</p>
                             </div>
@@ -418,7 +404,8 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Database Design</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-400">Designing and implementing highly efficient database
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Designing and implementing highly
+                                    efficient database
                                     schemas for both SQL and NoSQL systems, focusing on data integrity, scalability, and
                                     query optimization for complex data needs.</p>
                             </div>
@@ -428,8 +415,10 @@
                                 <i class="fas fa-cloud text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Cloud Infrastructure</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-400">Architecting, deploying, and managing scalable cloud
+                                <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Cloud Infrastructure
+                                </h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Architecting, deploying, and
+                                    managing scalable cloud
                                     infrastructure on platforms like AWS and DigitalOcean, ensuring high availability,
                                     cost-efficiency, and automated deployments.</p>
                             </div>
@@ -440,7 +429,8 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Web Development</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-400">Leveraging full-stack experience to build
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Leveraging full-stack experience
+                                    to build
                                     comprehensive web solutions, ensuring optimal integration and performance between
                                     frontend and backend. This broad perspective enhances API design and overall system
                                     architecture.</p>
@@ -801,16 +791,18 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100 text-slate-900 dark:text-slate-100">Enterprise Content Management System (CMS) Platform</h3>
+                        <h3
+                            class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100 text-slate-900 dark:text-slate-100">
+                            Enterprise Content Management System (CMS) Platform</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Development of a robust and scalable CMS for dynamic content administration, with advanced
                             user roles and database optimization.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PHP</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Laravel</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MySQL</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">MySQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Vue.js</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -833,18 +825,20 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100 text-slate-900 dark:text-slate-100">High-Volume B2B E-commerce System</h3>
+                        <h3
+                            class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100 text-slate-900 dark:text-slate-100">
+                            High-Volume B2B E-commerce System</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Backend for a high-volume B2B e-commerce system, designed to handle real-time inventory
                             management and payment gateways.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Java</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Spring
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Java</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Spring
                                 Boot</span>
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Docker</span>
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Docker</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -867,18 +861,19 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Project Management Application (SPA)</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Project Management
+                            Application (SPA)</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Development of a complete Single Page Application (SPA) for collaborative project
                             management, with interactive user interface and real-time communication.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Angular</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Angular</span>
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">TypeScript</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Laravel
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">TypeScript</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Laravel
                                 (API)</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MySQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">MySQL</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -901,18 +896,19 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Microservices API for Financial Services</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Microservices API for
+                            Financial Services</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Design and implementation of a microservices suite to process financial transactions,
                             ensuring high availability, security, and data consistency.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Java</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Spring
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Java</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Spring
                                 Cloud</span>
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">AWS</span>
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">AWS</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -935,18 +931,19 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Personalized Customer Portal with Dashboard</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Personalized Customer
+                            Portal with Dashboard</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Development of a web portal where clients can access their information, history, and an
                             interactive dashboard with relevant data.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Vue.js</span>
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">JavaScript</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PHP</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Laravel</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MySQL</span>
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">MySQL</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -969,16 +966,17 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Online Booking and Scheduling System</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Online Booking and
+                            Scheduling System</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Complete web application for managing service bookings, with availability optimization and
                             automated notifications.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PHP</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Laravel</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MySQL</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Angular</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">MySQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Angular</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -1001,17 +999,18 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Backend for Mobile Logistics Application</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Backend for Mobile
+                            Logistics Application</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Development of a high-performance RESTful API for a mobile logistics application, including
                             shipment tracking and route management.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">JavaScript</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Express</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MongoDB</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Digital
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Express</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">MongoDB</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Digital
                                 Ocean</span>
                         </div>
                         <div class="flex space-x-4">
@@ -1035,17 +1034,18 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Real-time Data Streaming Platform</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Real-time Data
+                            Streaming Platform</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Implementation of a system for ingesting and processing large volumes of real-time data,
                             with instant analysis and visualization.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Python</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">FastAPI</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">FastAPI</span>
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Docker</span>
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Docker</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -1068,15 +1068,16 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Centralized Authentication and Authorization System</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Centralized
+                            Authentication and Authorization System</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Microservice dedicated to user management, authentication (JWT, OAuth2), and role-based
                             authorization for multiple client applications.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PHP</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Laravel</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">MySQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">MySQL</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -1101,18 +1102,19 @@
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Administrative Task Automation Tool</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Administrative Task
+                            Automation Tool</h3>
                         <p class="text-slate-600 dark:text-slate-400 mb-4">
                             Creation of an internal application to automate complex administrative processes, improving
                             operational efficiency and reducing manual errors.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Java</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Spring
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Java</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Spring
                                 Boot</span>
                             <span
-                                class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-cyan bg-opacity-10 text-cyan text-xs rounded-full">Vue.js</span>
+                                class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs rounded-full">Vue.js</span>
                         </div>
                         <div class="flex space-x-4">
                             <a href="#" class="text-cyan hover:text-blue transition-colors">
@@ -1137,21 +1139,24 @@
                     <form action="https://formspree.io/f/xeokneld" method="POST"
                         class="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md">
                         <div class="mb-6">
-                            <label for="name" class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Name</label>
+                            <label for="name"
+                                class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Name</label>
                             <input type="text" id="name" name="name"
-                                class="w-full px-4 py-2 border dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                class="w-full px-4 py-2 border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
                                 placeholder="Your name" required>
                         </div>
                         <div class="mb-6">
-                            <label for="email" class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Email</label>
+                            <label for="email"
+                                class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Email</label>
                             <input type="email" id="email" name="email"
-                                class="w-full px-4 py-2 border dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                class="w-full px-4 py-2 border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
                                 placeholder="Your email" required>
                         </div>
                         <div class="mb-6">
-                            <label for="message" class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Message</label>
+                            <label for="message"
+                                class="block text-slate-700 dark:text-slate-300 font-medium mb-2">Message</label>
                             <textarea id="message" name="message" rows="5"
-                                class="w-full px-4 py-2 border dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
+                                class="w-full px-4 py-2 border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan transition-all"
                                 placeholder="Your message" required></textarea>
                         </div>
                         <button type="submit"
@@ -1162,7 +1167,8 @@
                 </div>
                 <div class="md:w-1/2">
                     <div class="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md h-full">
-                        <h3 class="text-xl font-semibold mb-6 text-slate-900 dark:text-slate-100">Contact Information</h3>
+                        <h3 class="text-xl font-semibold mb-6 text-slate-900 dark:text-slate-100">Contact Information
+                        </h3>
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="text-cyan mr-4">
@@ -1240,15 +1246,16 @@
                     </a>
                 </div>
             </div>
-            <div class="mt-8 pt-6 border-t border-slate-800 dark:border-slate-700 text-center text-slate-400 dark:text-slate-500">
+            <div
+                class="mt-8 pt-6 border-t border-slate-800 dark:border-slate-700 text-center text-slate-400 dark:text-slate-500">
                 <p>&copy; <span id="current-year"></span> Franco Condor. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- script on ./src/index.js -->
     <script src="./src/index.js"></script>
-    
+
+
 
 </body>
 
